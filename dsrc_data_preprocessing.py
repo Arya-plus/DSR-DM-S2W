@@ -68,7 +68,7 @@ def process_and_save():
     logger.info("🚀 Starting patch extraction pipeline...")
 
     data_path ="data"
-    # 🔷 Hardcoded paths
+    # Hardcoded paths
     pre_image_path = f"{data_path}/T35TMF_20230729T090559_B01.tif"
     post_image_path = f"{data_path}/T35TMF_20230912T090601_B01.tif"
     gt_image_path = f"{data_path}/gt.tif"
@@ -77,17 +77,17 @@ def process_and_save():
     patch_size = 32
     stride = 32
 
-    # 🔷 Load images
+    # Load images
     image1 = load_geotiff(pre_image_path)
     image2 = load_geotiff(post_image_path)
     gt = load_geotiff(gt_image_path).squeeze(0)  # assume single band
 
-    # 🔷 Process
+    # Process
     img1_patches = extract_patches(image1, patch_size, stride)
     img2_patches = extract_patches(image2, patch_size, stride)
     gt_medians = extract_gt_patches(gt, patch_size, stride)
 
-    # 🔷 Save as .mat
+    # Save as .mat
     sio.savemat(output_mat_path, {
         "img1_patches": img1_patches.numpy(),
         "img2_patches": img2_patches.numpy(),
