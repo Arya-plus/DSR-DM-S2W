@@ -65,7 +65,7 @@ def extract_gt_patches(gt_image: torch.Tensor, patch_size=32, stride=32) -> torc
 # Main pipeline with hardcoded paths
 # ======================
 def process_and_save():
-    logger.info("🚀 Starting patch extraction pipeline...")
+    logger.info(" Starting patch extraction pipeline...")
 
     data_path ="data"
     # Hardcoded paths
@@ -93,7 +93,7 @@ def process_and_save():
         "img2_patches": img2_patches.numpy(),
         "gt_medians": gt_medians.numpy()
     })
-    logger.info(f"✅ Saved patch data to {output_mat_path}")
+    logger.info(f" Saved patch data to {output_mat_path}")
 
 
 if __name__ == "__main__":
