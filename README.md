@@ -13,13 +13,13 @@ Note:
 To keep the regularization parameters valid, please make sure that the preprocessing stage is done correctly. Also, for large datasets since the batch size will be larger, the learning rate (or the maximum number of iterations) may need to be adapted accordingly.
 
 Demo:
-Use the following script to run the included demo for the UMDAA-01 dataset.
+Use the following script to run the included demo for the S2WCD dataset.
 
 python dsrc_main.py --mat umd 
 Running the code
 Run dsrc_main.py and use
 
---mat  YOUR_DATA to specify your dataset where YOUR_DATA.mat is stored in the "data" folder.
+--mat  DATA to specify your dataset where DATA.mat is stored in the "data" folder.
 
 --epoch  x to specify the maximum number of iterations.
 
