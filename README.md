@@ -2,7 +2,7 @@ Setup
 Dependencies:
 Pytorch, numpy, scipy, random, argparse.
 
-Step 1: Data Preparation
+#Step 1: Data Preparation
 Goal:
 Prepare my wildfire dataset so that each sample consists of a pre-disaster patch and a post-disaster patch, with a label indicating change/no-change (binary).
 
@@ -13,7 +13,7 @@ Save the data in a .mat file that includes verctorized features in a 1024xN matr
 
 A sample preprocessed dataset is available in: data/umd.mat
 
-Step 2: Data Loader
+#Step 2: Data Loader\\
 Write a function to load pre- and post- patches and their labels.
 Format:
 Img_train: pre-disaster patches (training)
@@ -24,21 +24,21 @@ train_labels, test_labels: binary labels
 function signature:
 def get_wildfire_data(pre_img_path, post_img_path, label_path, patch_size=16, train_rate=0.8):    # Load images, split into patches, assign labels, split train/test    return pre_train, pre_test, post_train, post_test, train_labels, test_labels
 
-Step 3: Model Adaptation
+#Step 3: Model Adaptation\\
 Input: Stack pre- and post- patches as channels or treat as separate modalities.
 Encoder: Feed pre-disaster patches.
 Decoder: Reconstruct post-disaster patches.
 Self-expression: Use the latent space of pre-disaster patches to reconstruct post-disaster patches for test samples via the self-expression matrix.
 
-Step 4: Training
+#Step 4: Training\\
 Pretrain: Autoencoder on pre-disaster patches.
 Finetune: Use self-expression loss and reconstruction loss as in Deep_SRC.
 
-Step 5: Inference & Binary Map Generation
+#Step 5: Inference & Binary Map Generation\\
 Reconstruction Error: For each test patch, compute the error between reconstructed and actual post-disaster patch.
 Thresholding: Use Otsu or quantile thresholding to convert error map to binary change map.
 
-Step 6: Evaluation
+#Step 6: Evaluation\\
 Compare the predicted binary map to the ground-truth binary map using metrics like Precision, Recall, F1, IoU.
 
 Note:
