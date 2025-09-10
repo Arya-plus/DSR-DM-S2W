@@ -3,7 +3,7 @@ Dependencies:
 Pytorch, numpy, scipy, random, argparse.
 
 Data preprocessing:
-Resize the input images of all the modalities to 32 × 32, and rescale them to have pixel values between 0 and 255. This is for keeping the hyperparameter selections valid.
+Resize the input images of all the modalities to 16 × 16, and rescale them to have pixel values between 0 and 255. This is for keeping the hyperparameter selections valid.
 
 Save the data in a .mat file that includes verctorized features in a 1024xN matrix with the name features and labels in a vector with the name Label.
 
